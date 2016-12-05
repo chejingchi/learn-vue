@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>生命周期</title>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+  <body>
+    <div id='test' class="">
+      {{text}}
+      <img v-bind:src="imgSrc" alt="" />
+    </div>
+  <script>
+  var data = {
+    a:1,
+    text:'vue实例的生命周期',
+    imgSrc: './vue-instance-circle.png'
+  }
+  var vm = new Vue({
+    el: '#test',
+    data: data
+  })
+
+  </script>
+  </body>
+</html>

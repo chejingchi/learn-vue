@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title></title>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+  <body>
+    <div id="test">
+      <h1>Mustache语法：</h1>
+      <span>Message: {{ msg }}</span>
+      <br/>
+      <span v-once>Message will never change : {{ msgOnce }}</span>
+      <br/>
+      <span>a + b + c + 1: {{ a + b + c + 1 }}</span>
+      <br/>
+      <span>flag : {{ flag ? "yes" : "no" }}</span>
+      <br/>
+      <span>we will do reverse to "{{msg}}"=</span>
+      <span>{{msg.split('').reverse().join('')}}</span>
+      <!-- <div v-html="rawHtml">{{ msg }}</div> -->
+    </div>
+
+  <script>
+  var data = {
+    a:1,
+    text:'vue 模板测试',
+    msg: 'this is a test',
+    msgOnce: 'this is a test for once',
+    b:2,
+    c:3,
+    flag: true
+  }
+  var vm = new Vue({
+    el: '#test',
+    data: data
+  })
+
+  </script>
+  </body>
+</html>

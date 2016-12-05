@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>文档标题</title>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+  <body>
+    <div id="app" class="">
+      <first-step v-for='item in stepList' v-bind:step='item'></first-step>
+    </div>
+  <script>
+  Vue.component('first-step',{
+    props: ['step'],
+    template: '<li>{{step.text}}</li>'
+  })
+  var app = new Vue({
+    el: '#app',
+    data: {
+      stepList: [
+        { text : '1st step'},
+        { text : '2nd step'},
+        { text : '3rd step'}
+      ]
+    }
+  })
+  </script>
+  </body>
+</html>
