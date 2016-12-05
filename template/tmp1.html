@@ -8,22 +8,29 @@
 </head>
   <body>
     <div id="test">
-      <h1>Mustache语法：</h1>
+      <h1>Mustache style：</h1>
       <span>Message: {{ msg }}</span>
       <br/>
+      <h1>things that will never change:</h1>
       <span v-once>Message will never change : {{ msgOnce }}</span>
       <br/>
+      <h1>we can use javascript in Mustache style:</h1>
       <span>a + b + c + 1: {{ a + b + c + 1 }}</span>
       <br/>
       <span>flag : {{ flag ? "yes" : "no" }}</span>
       <br/>
       <span>we will do reverse to "{{msg}}"=</span>
       <span>{{msg.split('').reverse().join('')}}</span>
+      <br/>
+      <span v-bind:id="'list-'+id">
+        we use vue to set the id for this span dynamicly
+      </span>
       <!-- <div v-html="rawHtml">{{ msg }}</div> -->
     </div>
 
   <script>
   var data = {
+    id:'myTest',
     a:1,
     text:'vue 模板测试',
     msg: 'this is a test',
