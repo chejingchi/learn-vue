@@ -33,6 +33,10 @@
       <span v-bind:id="'list-'+id">
         we use vue to set the id for this span dynamicly
       </span>
+      <br/>
+      <span>
+        {{msgForFilterTest | capitalize |capitalizeLast}}
+      </span>
       <!-- <div v-html="rawHtml">{{ msg }}</div> -->
     </div>
 
@@ -47,11 +51,24 @@
     c:3,
     flag: true,
     testBind:'bindTest',
-    testDisabled:true
+    testDisabled:true,
+    msgForFilterTest:'this is a test for test filter'
   }
   var vm = new Vue({
     el: '#test',
-    data: data
+    data: data,
+    filters: {
+      capitalize : function (value) {
+        if(!value) return ''
+        value = value.toString()
+        return value.charAt(0).toUpperCase() + value.slice(1)
+      },
+      capitalizeLast : function (value) {
+        if(!value) return ''
+        value = value.toString()
+        return value.slice(0,value.length - 1) + value.charAt(value.length - 1).toUpperCase()
+      }
+    }
   })
 
   </script>
