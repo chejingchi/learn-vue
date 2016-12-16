@@ -14,6 +14,14 @@
       <h1>things that will never change:</h1>
       <span v-once>Message will never change : {{ msgOnce }}</span>
       <br/>
+      <h1>we can not use Mustache in html we need to use v-bind</h1>
+      <span v-bind:id='testBind'>{{testBind}}</span>
+      <br/>
+      <h1>it can also use boolean attributes.</h1>
+      <button v-bind:disabled="testDisabled" type="button" name="button">
+        testDisabled
+      </button>
+      <br/>
       <h1>we can use javascript in Mustache style:</h1>
       <span>a + b + c + 1: {{ a + b + c + 1 }}</span>
       <br/>
@@ -37,7 +45,9 @@
     msgOnce: 'this is a test for once',
     b:2,
     c:3,
-    flag: true
+    flag: true,
+    testBind:'bindTest',
+    testDisabled:true
   }
   var vm = new Vue({
     el: '#test',
