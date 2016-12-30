@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>文档标题</title>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="directive1">
+    <p v-if="seen">you can see me</p>
+  </div>
+  <script>
+  var data={
+    seen : true
+  }
+  var vm = new Vue({
+    el:"#directive1",
+    data:data
+  })
+  </script>
+</body>
+</html>
