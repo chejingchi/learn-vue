@@ -8,11 +8,22 @@
 </head>
 <body>
   <div id="directive1">
+    <h1>command</h1>
     <p v-if="seen">you can see me</p>
+    <br>
+    <h1>parameter</h1>
+    <a v-bind:href="url">I am a bind for baidu</a>
+    <br>
+    <h1>v-on listen on dom things</h1>
+    <a v-on:click="doAlert">v-on click</a>
   </div>
   <script>
   var data={
-    seen : true
+    seen : true,
+    url : "https://www.baidu.com",
+    doAlert : function () {
+      alert("test")
+    }
   }
   var vm = new Vue({
     el:"#directive1",
