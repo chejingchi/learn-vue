@@ -8,18 +8,35 @@
 </head>
 <body>
   <h1>filter</h1>
-  <h2>i don't understand clearly</h2>
   <div id="filter">
+    {{message |capitalize |capitalize2}}
+    <div v-bind:id="rawId | capitalize |capitalize2" />
 
+    </div>
   </div>
   <br>
   <script>
   var data={
-
+    message:"test t must be upper case",
+    rawId: "testData"
   }
   var vm = new Vue({
     el:"#filter",
-    data:data
+    data:data,
+    filters:{
+      capitalize : function (value) {
+        if(!value)return ''
+        console.log(value)
+        value = value.toString()
+        return value.charAt(0).toUpperCase() + value.slice(1)
+      },
+      capitalize2 : function (value) {
+        if(!value)return ''
+        console.log(value)
+        value = value.toString()
+        return value.charAt(0) + value.charAt(1).toUpperCase() + value.slice(1)
+      }
+    }
   })
   </script>
 </body>
