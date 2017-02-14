@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>文档标题</title>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+  <h1>base example</h1>
+  <div id="baseExample">
+    <p>original message: {{message}}</p>
+    <h4>computed properties are cached based on their dependencies.
+      it will re-evaluate unless some of its dependencies have changed.
+      This means as long as message has not changed,
+      multiple access to the reversedMessage computed property will immediately return the previously computed result without having to run the function again.
+    </h4>
+    <p>computed message: {{reverseMsg}}</p>
+    <h4>methods will re-render itself when you run it everytime</h4>
+    <h4>if you don't need cache,please use methods</h4>
+    <p>methods message : {{reversedMsg()}}</p>
+  </div>
+  <br>
+  <script>
+  var data = {
+    message: Date.now()
+  }
+  var reverseMessage = function () {
+    return Date.now()
+  }
+  var vm = new Vue({
+    el: '#baseExample',
+    data: data,
+    computed: {
+      reverseMsg: reverseMessage
+    },
+    methods: {
+      reversedMsg: reverseMessage
+    }
+  })
+  </script>
+</body>
+</html>
