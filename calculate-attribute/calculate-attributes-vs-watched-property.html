@@ -8,29 +8,45 @@
 </head>
 <body>
   <h1>base example</h1>
-  <div id="baseExample">
-    {{ fullName}}
-    
+  <div id="watchExample">
+    {{ watchName}}
+  </div>
+  <div id="computeExample">
+    {{computeName}}
   </div>
   <br>
   <script>
   var data = {
-    firstName: '囡囡',
+    firstName: '囡囡 use watch',
     lastName: '吴',
-    fullName: '吴 囡囡'
+    watchName: ''
   }
   var vm = new Vue({
-    el: '#baseExample',
+    el: '#watchExample',
     data: data,
     watch: {
       firstName: function (val) {
-        this.fullName = val + ' ' + this.lastName
+        this.watchName = this.lastName + ' ' + val
       },
       lastName: function (val) {
-        this.fullName = this.firstName + ' ' + val
+        this.watchName = val + ' ' + this.firstName
       }
     }
   })
+  //
+  // var vm1 = new Vue({
+  //   el: '#computeExample',
+  //   data: {
+  //     firstName: '囡囡 use compute',
+  //     lastName: '吴'
+  //   },
+  //   computed: {
+  //     computeName : function () {
+  //       return this.lastName + ' ' + this.firstName
+  //     }
+  //   }
+  // })
+
   </script>
 </body>
 </html>
