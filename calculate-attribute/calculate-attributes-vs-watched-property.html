@@ -19,7 +19,7 @@
   var data = {
     firstName: '囡囡 use watch',
     lastName: '吴',
-    watchName: ''
+    watchName: '吴 囡囡 use watch'
   }
   var vm = new Vue({
     el: '#watchExample',
@@ -33,19 +33,19 @@
       }
     }
   })
-  //
-  // var vm1 = new Vue({
-  //   el: '#computeExample',
-  //   data: {
-  //     firstName: '囡囡 use compute',
-  //     lastName: '吴'
-  //   },
-  //   computed: {
-  //     computeName : function () {
-  //       return this.lastName + ' ' + this.firstName
-  //     }
-  //   }
-  // })
+
+  var vm1 = new Vue({
+    el: '#computeExample',
+    data: {
+      firstName: '囡囡 use compute',
+      lastName: '吴'
+    },
+    computed: {
+      computeName : function () {
+        return this.lastName + ' ' + this.firstName
+      }
+    }
+  })
 
   </script>
 </body>
