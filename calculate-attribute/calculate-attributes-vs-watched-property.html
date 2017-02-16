@@ -17,9 +17,9 @@
   <br>
   <script>
   var data = {
-    firstName: '囡囡 use watch',
+    firstName: '囡囡',
     lastName: '吴',
-    watchName: '吴 囡囡 use watch'
+    watchName: '吴 囡囡'
   }
   var vm = new Vue({
     el: '#watchExample',
@@ -30,6 +30,11 @@
       },
       lastName: function (val) {
         this.watchName = val + ' ' + this.firstName
+      },
+      watchName: function (val) {
+        var names = val.split(' ')
+        this.firstName = names[1]
+        this.lastName = names[0]
       }
     }
   })

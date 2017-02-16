@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>文档标题</title>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+  <h1>setter</h1>
+  <div id="setterExample">
+    <p>firstName : {{firstName}}</p>
+    <p>lastName : {{lastName}}</p>
+    <p>fullName : {{fullName}}</p>
+
+  </div>
+  <script>
+  var vm = new Vue({
+    el: '#setterExample',
+    data: {
+      firstName: '囡囡',
+      lastName: '吴'
+    },
+    computed: {
+      fullName : {
+        get : function () {
+          return this.lastName + ' ' + this.firstName
+        },
+        set : function (val) {
+          var names = val.split(' ')
+          this.lastName = names[0]
+          this.firstName = names[1]
+        }
+      }
+    }
+  })
+
+  </script>
+</body>
+</html>
